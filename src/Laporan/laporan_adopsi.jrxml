@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b0e313c-fa55-4c43-8edd-d87afa95a395">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select * from adopsi;]]>
+	</queryString>
+	<field name="nama_wali" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat_wali" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_anak" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_anak" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenkel_anak" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="usia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_lahir" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_adopsi" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="150" y="0" width="450" height="62" uuid="a5a32cd4-b11d-47d9-bda0-1fed861ad5e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[LAPORAN ADOPSI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="b1a5e6ef-117d-40b2-afac-e57ba3742400"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="125" height="15" forecolor="#736343" uuid="7a017b6c-30c3-448b-8975-1dead2c6b68e"/>
+				<text><![CDATA[NAMA WALI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="125" y="0" width="144" height="15" forecolor="#736343" uuid="40e56ed7-b7ab-4112-852e-eec13e87542e"/>
+				<text><![CDATA[ALAMAT WALI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="269" y="0" width="100" height="15" forecolor="#736343" uuid="2f9593fb-a477-4c3a-805e-3b89fba24a24"/>
+				<text><![CDATA[NAMA ANAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="369" y="0" width="146" height="15" forecolor="#736343" uuid="3e9142fe-ee20-4451-90fa-091c07464402"/>
+				<text><![CDATA[JENIS KELAMIN ANAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="515" y="0" width="41" height="15" forecolor="#736343" uuid="24bbda52-1357-4d8a-bda2-815ab7658188"/>
+				<text><![CDATA[USIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="556" y="0" width="125" height="15" forecolor="#736343" uuid="a05fa7be-5c1e-4e56-9344-b3fc08230cdf"/>
+				<text><![CDATA[TANGGAL LAHIR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="681" y="0" width="121" height="15" forecolor="#736343" uuid="8e222337-05da-4bf6-8bda-7682f1dda759"/>
+				<text><![CDATA[TANGGAL ADOPSI]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="358afea5-38f9-4cb8-8c0b-64f04661deff"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="125" height="15" uuid="8e879bf7-26b0-4a44-bead-e374a6817045"/>
+					<textFieldExpression><![CDATA[$F{nama_wali}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="125" y="0" width="144" height="15" uuid="d20968b8-ea53-4c1c-ae6e-210d2aadce9e"/>
+					<textFieldExpression><![CDATA[$F{alamat_wali}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="269" y="0" width="100" height="15" uuid="93ffe078-e5cc-417e-aee6-32af445fdd0d"/>
+					<textFieldExpression><![CDATA[$F{nama_anak}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="369" y="0" width="146" height="15" uuid="eb8a0642-aba6-4f0b-be29-11227a5fad90"/>
+					<textFieldExpression><![CDATA[$F{jenkel_anak}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="515" y="0" width="41" height="15" uuid="34f441ae-5f8a-4068-8cc1-8b676790f554"/>
+					<textFieldExpression><![CDATA[$F{usia}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="556" y="0" width="125" height="15" uuid="5cce2f7b-efb3-476e-8688-6c246700a17f"/>
+					<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="681" y="0" width="121" height="15" uuid="d6ecb670-57e2-4409-8f98-0acbbd28ccfc"/>
+					<textFieldExpression><![CDATA[$F{tgl_adopsi}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="3350c2dd-da94-4ebf-b04e-2f881ebb5ba8"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="132b8ac0-6de3-4a96-83e9-814307d88444"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="84a64e65-78fc-4dbe-a010-117b6af99d5a"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="702" y="1" width="80" height="20" forecolor="#736343" uuid="7c30b519-b2da-44bd-bd4b-6fd69b5e2642"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="9a664b8c-d653-4cc7-b4ae-d14c26c25446"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
