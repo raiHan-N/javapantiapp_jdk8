@@ -151,6 +151,12 @@ public class FormPemasukan extends javax.swing.JFrame {
             }
         });
 
+        tglpms.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tglpmsPropertyChange(evt);
+            }
+        });
+
         bdelete.setText("DELETE");
         bdelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +285,7 @@ public class FormPemasukan extends javax.swing.JFrame {
         // TODO add your handling code here:
         
           try {
-            String sql = "Update pemasukan set jumlah_pemasukan=?,sumber_pemasukan=?,tanggal_pemasukann=? where id =?";
+            String sql = "Update pemasukan set jumlah_pemasukan=?,sumber_pemasukan=?,tanggal_pemasukan=? where id =?";
             PreparedStatement stat = conn.prepareStatement(sql) ;
 
             stat.setString(1, tjp.getText());
@@ -339,6 +345,13 @@ public class FormPemasukan extends javax.swing.JFrame {
         tsumber.setText(c);
         tanggal_pemasukan();
     }//GEN-LAST:event_tablepemasukanMouseClicked
+
+    private void tglpmsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tglpmsPropertyChange
+        // TODO add your handling code here:
+        if(tglpms.getDate()!=null){
+            tgl3 = format.format(tglpms.getDate());
+        }
+    }//GEN-LAST:event_tglpmsPropertyChange
 
     /**
      * @param args the command line arguments

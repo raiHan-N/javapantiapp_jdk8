@@ -169,6 +169,9 @@
       </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="tglpms">
+      <Events>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="tglpmsPropertyChange"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bdelete">
       <Properties>

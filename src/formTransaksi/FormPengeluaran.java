@@ -154,6 +154,12 @@ public class FormPengeluaran extends javax.swing.JFrame {
             }
         });
 
+        tglpengeluaran.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tglpengeluaranPropertyChange(evt);
+            }
+        });
+
         bdelete.setText("DELETE");
         bdelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,6 +343,13 @@ public class FormPengeluaran extends javax.swing.JFrame {
         tanggal_pengeluaran();
         
     }//GEN-LAST:event_tablepengeluaranMouseClicked
+
+    private void tglpengeluaranPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tglpengeluaranPropertyChange
+        // TODO add your handling code here:
+        if(tglpengeluaran.getDate()!=null){
+            tgl2 = format.format(tglpengeluaran.getDate());
+        }
+    }//GEN-LAST:event_tglpengeluaranPropertyChange
 
     /**
      * @param args the command line arguments
