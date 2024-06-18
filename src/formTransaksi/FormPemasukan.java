@@ -3,19 +3,88 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package formTransaksi;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import koneksi.koneksi;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.border.*;
+import javax.swing.plaf.basic.BasicBorders;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Raihan
  */
 public class FormPemasukan extends javax.swing.JFrame {
+     private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
+    public String tgl3;
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
     /**
      * Creates new form FormPemasukan
      */
     public FormPemasukan() {
         initComponents();
+         tglpms.setDateFormatString("yyyy-MM-dd");
+        datatable();
     }
+    
+     protected void aktif() {
+        tid.setEnabled(true);
+        tjp.setEnabled(true);
+        tsumber.setEnabled(true);
+        tglpms.setEnabled(true);
+       
+    }
+     
+     protected void kosong() {
+        tid.setText("");
+        tjp.setText("");
+        tsumber.setText("");
+        tglpms.setDate(null);
+   
+     }
+     
+      protected void datatable() {
+    Object[] Baris = {"ID Pemasukan","Jumlah Pemasukan","Sumber Pemasukan", "Tanggal Pemasukan"};
+    tabmode = new DefaultTableModel(null,Baris);
+    tablepemasukan.setModel(tabmode);
+    String sql= "select * from pemasukan";
+    try {
+        Statement stat = conn.createStatement();
+        ResultSet hasil = stat.executeQuery(sql);
+        while(hasil.next()){
+            String a = hasil.getString("id");
+            String b = hasil.getString("jumlah_pemasukan");        
+            String c = hasil.getString("sumber_pemasukan");        
+            String d = hasil.getString("tanggal_pemasukan");        
+                    
+             String[] data = {a,b,c,d};                 
+            tabmode.addRow(data);
+
+        } 
+    } catch (SQLException e) {
+                    System.err.println(e);
+
+    }
+}
+      
+        public void tanggal_pemasukan() {
+
+    try {
+        Connection c = new koneksi().connect();
+        Statement stat = c.createStatement();
+        String sql = "select * from pemasukan where id = '"+tid.getText()+"'";
+        ResultSet r = stat.executeQuery(sql);
+        while(r.next()){
+            tglpms.setDate(r.getDate("tanggal_pemasukan"));
+        }
+    } catch (SQLException e) {
+    }
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,45 +95,70 @@ public class FormPemasukan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton6 = new javax.swing.JButton();
+        bexit = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        bsave = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        tjp = new javax.swing.JTextField();
+        bclear = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jButton10 = new javax.swing.JButton();
+        tid = new javax.swing.JTextField();
+        bedit = new javax.swing.JButton();
+        tglpms = new com.toedter.calendar.JDateChooser();
+        bdelete = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablepemasukan = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tsumber = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton6.setText("EXIT");
+        bexit.setText("EXIT");
+        bexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bexitActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Tanggal Pemasukan");
 
-        jButton7.setText("SAVE");
+        bsave.setText("SAVE");
+        bsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsaveActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel7.setText("DATA PEMASUKAN");
 
         jLabel8.setText("ID Pemasukan");
 
-        jButton8.setText("CLEAR");
+        bclear.setText("CLEAR");
+        bclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bclearActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Jumlah Pemasukan");
 
-        jButton9.setText("EDIT");
+        bedit.setText("EDIT");
+        bedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beditActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("DELETE");
+        bdelete.setText("DELETE");
+        bdelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bdeleteActionPerformed(evt);
+            }
+        });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tablepemasukan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -75,7 +169,12 @@ public class FormPemasukan extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        tablepemasukan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablepemasukanMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablepemasukan);
 
         jLabel11.setText("Sumber Pemasukan");
 
@@ -90,15 +189,15 @@ public class FormPemasukan extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton7)
+                                .addComponent(bsave)
                                 .addGap(32, 32, 32)
-                                .addComponent(jButton9)
+                                .addComponent(bedit)
                                 .addGap(31, 31, 31)
-                                .addComponent(jButton10)
+                                .addComponent(bdelete)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8)
+                                .addComponent(bclear)
                                 .addGap(43, 43, 43)
-                                .addComponent(jButton6)))
+                                .addComponent(bexit)))
                         .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -111,10 +210,10 @@ public class FormPemasukan extends javax.swing.JFrame {
                                     .addComponent(jLabel9))
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(tjp, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tsumber, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tglpms, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -125,26 +224,26 @@ public class FormPemasukan extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tjp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tsumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglpms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jButton8)
-                    .addComponent(jButton6))
+                    .addComponent(bsave)
+                    .addComponent(bedit)
+                    .addComponent(bdelete)
+                    .addComponent(bclear)
+                    .addComponent(bexit))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -152,6 +251,94 @@ public class FormPemasukan extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsaveActionPerformed
+        // TODO add your handling code here:
+        
+        String sql = "insert into pemasukan values(?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1,tid.getText());
+            stat.setString(2, tjp.getText());
+            stat.setString(3,tsumber.getText());
+            stat.setString(4, tgl3);
+            
+
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+            kosong();
+            tid.requestFocus();
+            datatable();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan"+e);
+
+        }
+    }//GEN-LAST:event_bsaveActionPerformed
+
+    private void beditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beditActionPerformed
+        // TODO add your handling code here:
+        
+          try {
+            String sql = "Update pemasukan set jumlah_pemasukan=?,sumber_pemasukan=?,tanggal_pemasukann=? where id =?";
+            PreparedStatement stat = conn.prepareStatement(sql) ;
+
+            stat.setString(1, tjp.getText());
+            stat.setString(2, tsumber.getText());
+            stat.setString(3, tgl3);
+            stat.setString(4, tid.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
+            kosong();
+            tid.requestFocus();
+            datatable();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Diubah"+e);
+        }
+
+    }//GEN-LAST:event_beditActionPerformed
+
+    private void bdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdeleteActionPerformed
+        // TODO add your handling code here:
+        
+        
+        int ok = JOptionPane.showConfirmDialog(null,  "hapus","Konfirmasi Dialog",JOptionPane.YES_NO_CANCEL_OPTION);
+        if(ok == 0){
+            String sql = " delete from pemasukan where id = '"+tid.getText()+"'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosong();
+                tid.requestFocus();
+                datatable();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Data gagal dihapus"+ e);
+            }
+        }
+    }//GEN-LAST:event_bdeleteActionPerformed
+
+    private void bclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bclearActionPerformed
+        // TODO add your handling code here:
+        kosong();
+    }//GEN-LAST:event_bclearActionPerformed
+
+    private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
+        // TODO add your handling code here:
+         dispose();
+    }//GEN-LAST:event_bexitActionPerformed
+
+    private void tablepemasukanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepemasukanMouseClicked
+        // TODO add your handling code here:
+         int bar = tablepemasukan.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        
+        tid.setText(a);
+        tjp.setText(b);
+        tsumber.setText(c);
+        tanggal_pemasukan();
+    }//GEN-LAST:event_tablepemasukanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -189,21 +376,21 @@ public class FormPemasukan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JButton bclear;
+    private javax.swing.JButton bdelete;
+    private javax.swing.JButton bedit;
+    private javax.swing.JButton bexit;
+    private javax.swing.JButton bsave;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTable tablepemasukan;
+    private com.toedter.calendar.JDateChooser tglpms;
+    private javax.swing.JTextField tid;
+    private javax.swing.JTextField tjp;
+    private javax.swing.JTextField tsumber;
     // End of variables declaration//GEN-END:variables
 }
