@@ -7,9 +7,7 @@ import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import koneksi.koneksi;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.border.*;
 import javax.swing.plaf.basic.BasicBorders;
@@ -669,7 +667,7 @@ public void tanggal_masuk() {
     private void btncetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetakActionPerformed
         // TODO add your handling code here:
         try {
-            String namaFile = "src/Laporan/laporan_adopsi.jasper";
+            String namaFile = "src/Laporan/laporanadopsi.jasper";
             Connection konek = new koneksi().connect();
             HashMap parameter = new HashMap();
             File report_file = new File(namaFile);

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="84e5f045-1dc5-4289-8083-4c90858d5feb">
+	<property name="ireport.zoom" value="0.9090909090909095"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pengeluaran.`id` AS pengeluaran_id,
+     pengeluaran.`jumlah_pengeluaran` AS pengeluaran_jumlah_pengeluaran,
+     pengeluaran.`keperluan_pengeluaran` AS pengeluaran_keperluan_pengeluaran,
+     pengeluaran.`tanggal_pengeluaran` AS pengeluaran_tanggal_pengeluaran
+FROM
+     `pengeluaran` pengeluaran]]>
+	</queryString>
+	<field name="pengeluaran_id" class="java.lang.String"/>
+	<field name="pengeluaran_jumlah_pengeluaran" class="java.lang.Integer"/>
+	<field name="pengeluaran_keperluan_pengeluaran" class="java.lang.String"/>
+	<field name="pengeluaran_tanggal_pengeluaran" class="java.sql.Date"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="4e667f1d-9591-46c3-a208-c0c417d5dfef"/>
+				<staticText>
+					<reportElement x="0" y="20" width="595" height="63" forecolor="#FFFFFF" uuid="e39d3c71-a70f-47a4-bf5e-9d41013fdacd"/>
+					<textElement textAlignment="Center">
+						<font size="45" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LAPORAN PENGELUARAN]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5f102e8e-0b75-48dc-8ea3-c8f73251d6af"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="48e49621-707b-48b0-bc04-e257c837f437"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PENGELUARAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="461eaff8-7a24-4d3a-9acb-ece564e5e68e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d00e74b5-1218-4189-a88b-ec2f58bc062e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KEPERLUAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b58d2dc4-a91b-4858-a16f-999aaa8e85bd"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="5a29fa17-1506-443e-af92-ba39b21ea232"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="138" height="20" uuid="91000c36-746c-4052-9295-3812ac1f1aae"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pengeluaran_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="0" width="138" height="20" uuid="b08e08df-2fb4-4c50-8b67-a0210d798e68"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pengeluaran_jumlah_pengeluaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="138" height="20" uuid="887735fa-0bdd-4533-b4e6-fa689330d140"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pengeluaran_keperluan_pengeluaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="0" width="137" height="20" uuid="30702daf-9b9e-4ef7-a9f8-1b4429c70cf4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pengeluaran_tanggal_pengeluaran}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="197">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="438" y="40" width="114" height="22" uuid="4693a857-aa16-416b-9732-97b6788cdc11"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="370" y="162" width="182" height="1" uuid="d655a211-5cbb-4fbe-9e2f-4cfcf25fa4ce"/>
+			</line>
+			<staticText>
+				<reportElement x="370" y="40" width="68" height="22" uuid="8c338ad2-9444-49f8-bd50-4cadd75ba786"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="163" width="182" height="22" uuid="b22d49ac-bb4b-4c80-9054-070035dd48d0"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Pengurus]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="21">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="c6c93d49-5375-4551-8a82-df1749177d08"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="9d810afa-0389-4bab-9551-fe657ed3c306"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="ac401067-c262-47a2-a36c-f260bb12660e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

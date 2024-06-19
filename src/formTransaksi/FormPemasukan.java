@@ -6,11 +6,16 @@ package formTransaksi;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import koneksi.koneksi;
-import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.border.*;
-import javax.swing.plaf.basic.BasicBorders;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import java.io.File;
+import java.util.HashMap;
+
 
 /**
  *
@@ -95,7 +100,6 @@ public class FormPemasukan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bexit = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         bsave = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -111,15 +115,9 @@ public class FormPemasukan extends javax.swing.JFrame {
         tablepemasukan = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         tsumber = new javax.swing.JTextField();
+        btncetak = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        bexit.setText("EXIT");
-        bexit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bexitActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Tanggal Pemasukan");
 
@@ -184,6 +182,13 @@ public class FormPemasukan extends javax.swing.JFrame {
 
         jLabel11.setText("Sumber Pemasukan");
 
+        btncetak.setText("CETAK");
+        btncetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncetakActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -193,7 +198,7 @@ public class FormPemasukan extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bsave)
                                 .addGap(32, 32, 32)
@@ -203,8 +208,8 @@ public class FormPemasukan extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bclear)
                                 .addGap(43, 43, 43)
-                                .addComponent(bexit)))
-                        .addGap(24, 24, 24))
+                                .addComponent(btncetak)))
+                        .addGap(149, 149, 149))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +254,7 @@ public class FormPemasukan extends javax.swing.JFrame {
                     .addComponent(bedit)
                     .addComponent(bdelete)
                     .addComponent(bclear)
-                    .addComponent(bexit))
+                    .addComponent(btncetak))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -328,11 +333,6 @@ public class FormPemasukan extends javax.swing.JFrame {
         kosong();
     }//GEN-LAST:event_bclearActionPerformed
 
-    private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
-        // TODO add your handling code here:
-         dispose();
-    }//GEN-LAST:event_bexitActionPerformed
-
     private void tablepemasukanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepemasukanMouseClicked
         // TODO add your handling code here:
          int bar = tablepemasukan.getSelectedRow();
@@ -352,6 +352,22 @@ public class FormPemasukan extends javax.swing.JFrame {
             tgl3 = format.format(tglpms.getDate());
         }
     }//GEN-LAST:event_tglpmsPropertyChange
+
+    private void btncetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetakActionPerformed
+        // TODO add your handling code here:
+        try {
+            String namaFile = "src/Laporan/laporanpemasukan.jasper";
+            Connection konek = new koneksi().connect();
+            HashMap parameter = new HashMap();
+            File report_file = new File(namaFile);
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter,konek);
+            JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.setDefaultLookAndFeelDecorated(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btncetakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,8 +408,8 @@ public class FormPemasukan extends javax.swing.JFrame {
     private javax.swing.JButton bclear;
     private javax.swing.JButton bdelete;
     private javax.swing.JButton bedit;
-    private javax.swing.JButton bexit;
     private javax.swing.JButton bsave;
+    private javax.swing.JButton btncetak;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

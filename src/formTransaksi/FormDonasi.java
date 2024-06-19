@@ -6,11 +6,19 @@ package formTransaksi;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import koneksi.koneksi;
-import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.border.*;
-import javax.swing.plaf.basic.BasicBorders;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import java.util.HashMap;
+import java.io.File;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+
 /**
  *
  * @author Raihan
@@ -108,7 +116,6 @@ public void tanggal_donasi() {
         tido = new javax.swing.JTextField();
         bdelete = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        bexit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabledonasi = new javax.swing.JTable();
@@ -119,6 +126,7 @@ public void tanggal_donasi() {
         bcari = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         tndo = new javax.swing.JTextField();
+        btncetak = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,13 +166,6 @@ public void tanggal_donasi() {
         });
 
         jLabel3.setText("ID Donatur");
-
-        bexit.setText("EXIT");
-        bexit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bexitActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Tanggal Donasi");
 
@@ -209,6 +210,13 @@ public void tanggal_donasi() {
 
         jLabel7.setText("Nama Donatur");
 
+        btncetak.setText("CETAK");
+        btncetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncetakActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,7 +253,7 @@ public void tanggal_donasi() {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bsave)
                                 .addGap(26, 26, 26)
@@ -255,8 +263,8 @@ public void tanggal_donasi() {
                                 .addGap(30, 30, 30)
                                 .addComponent(bclear)
                                 .addGap(18, 18, 18)
-                                .addComponent(bexit)))
-                        .addGap(24, 24, 24))))
+                                .addComponent(btncetak)))
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +303,7 @@ public void tanggal_donasi() {
                     .addComponent(bedit)
                     .addComponent(bdelete)
                     .addComponent(bclear)
-                    .addComponent(bexit))
+                    .addComponent(btncetak))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -373,11 +381,6 @@ public void tanggal_donasi() {
         }
     }//GEN-LAST:event_bdeleteActionPerformed
 
-    private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_bexitActionPerformed
-
     private void tabledonasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabledonasiMouseClicked
         // TODO add your handling code here:
         int bar = tabledonasi.getSelectedRow();
@@ -427,6 +430,24 @@ public void tanggal_donasi() {
         }
     }//GEN-LAST:event_bcariActionPerformed
 
+    private void btncetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetakActionPerformed
+        // TODO add your handling code here:
+        String nk = JOptionPane.showInputDialog("Masukkan ID yang ingin di cetak");
+        try {
+            
+            Connection konek = new koneksi().connect();
+            HashMap parameter = new HashMap();
+            parameter.put("nomor_kwitansi",nk);
+            File report_file = new File("src/Laporan/laporandonasi.jrxml");
+            JasperDesign jasperDesign = JRXmlLoader.load(report_file);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter,konek);
+            JasperViewer.viewReport(jasperPrint,false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btncetakActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -467,8 +488,8 @@ public void tanggal_donasi() {
     private javax.swing.JButton bclear;
     private javax.swing.JButton bdelete;
     private javax.swing.JButton bedit;
-    private javax.swing.JButton bexit;
     private javax.swing.JButton bsave;
+    private javax.swing.JButton btncetak;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
