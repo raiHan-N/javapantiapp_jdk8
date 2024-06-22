@@ -41,13 +41,12 @@ public class FormRegister extends javax.swing.JFrame {
         tid.setText("");
         tusername.setText("");
         tnama.setText("");
-        cbjenis.setSelectedItem(0);
         tusername.setText("");
         tpass.setText("");
     }
     
     protected void datatable() {
-    Object[] Baris = {"ID", "Nama Admin", "Jenis Jabatan","Username"};
+    Object[] Baris = {"ID", "Nama Admin","Username"};
     tabmode = new DefaultTableModel(null,Baris);
     tabeladmin.setModel(tabmode);
     String sql = "select * from admin";
@@ -57,10 +56,9 @@ public class FormRegister extends javax.swing.JFrame {
             while(hasil.next()){  
             String a = hasil.getString("id");
             String b = hasil.getString("nama");
-            String c = hasil.getString("jenis");
-            String d = hasil.getString("username");
+            String c = hasil.getString("username");
             
-            String[] data = {a,b,c,d};
+            String[] data = {a,b,c};
             tabmode.addRow(data);
             }
         } catch (Exception e) {
@@ -88,8 +86,6 @@ public class FormRegister extends javax.swing.JFrame {
         tid = new javax.swing.JTextField();
         tnama = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        cbjenis = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         tusername = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -100,13 +96,13 @@ public class FormRegister extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnedit = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        btndelete = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         btnclear = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         btnback = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         btnclose = new javax.swing.JLabel();
+        btndelete = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,13 +156,6 @@ public class FormRegister extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel3.setText("Nama");
-
-        jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel4.setText("Jenis");
-
-        cbjenis.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        cbjenis.setForeground(new java.awt.Color(70, 70, 70));
-        cbjenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel5.setText("Username");
@@ -310,56 +299,6 @@ public class FormRegister extends javax.swing.JFrame {
                     .addGap(0, 7, Short.MAX_VALUE)))
         );
 
-        btndelete.setBackground(new java.awt.Color(16, 150, 72));
-        btndelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btndelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btndeleteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btndeleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btndeleteMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btndeleteMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btndeleteMouseReleased(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(247, 240, 240));
-        jLabel11.setText("DELETE");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btndeleteLayout = new javax.swing.GroupLayout(btndelete);
-        btndelete.setLayout(btndeleteLayout);
-        btndeleteLayout.setHorizontalGroup(
-            btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 104, Short.MAX_VALUE)
-            .addGroup(btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btndeleteLayout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel11)
-                    .addGap(0, 22, Short.MAX_VALUE)))
-        );
-        btndeleteLayout.setVerticalGroup(
-            btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-            .addGroup(btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btndeleteLayout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
-                    .addComponent(jLabel11)
-                    .addGap(0, 7, Short.MAX_VALUE)))
-        );
-
         btnclear.setBackground(new java.awt.Color(16, 150, 72));
         btnclear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnclear.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -468,6 +407,56 @@ public class FormRegister extends javax.swing.JFrame {
             }
         });
 
+        btndelete.setBackground(new java.awt.Color(16, 150, 72));
+        btndelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btndelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btndeleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btndeleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btndeleteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btndeleteMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btndeleteMouseReleased(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(247, 240, 240));
+        jLabel15.setText("DELETE");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btndeleteLayout = new javax.swing.GroupLayout(btndelete);
+        btndelete.setLayout(btndeleteLayout);
+        btndeleteLayout.setHorizontalGroup(
+            btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 96, Short.MAX_VALUE)
+            .addGroup(btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btndeleteLayout.createSequentialGroup()
+                    .addGap(0, 21, Short.MAX_VALUE)
+                    .addComponent(jLabel15)
+                    .addGap(0, 22, Short.MAX_VALUE)))
+        );
+        btndeleteLayout.setVerticalGroup(
+            btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+            .addGroup(btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btndeleteLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(jLabel15)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -486,31 +475,29 @@ public class FormRegister extends javax.swing.JFrame {
                         .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(8, 8, 8)
                         .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tusername)
-                    .addComponent(cbjenis, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tpass)
                     .addComponent(tnama)
                     .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,10 +515,6 @@ public class FormRegister extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cbjenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -542,13 +525,13 @@ public class FormRegister extends javax.swing.JFrame {
                     .addComponent(tpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -564,7 +547,7 @@ public class FormRegister extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -581,12 +564,10 @@ public class FormRegister extends javax.swing.JFrame {
         int bar = tabeladmin.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
-        String c = tabmode.getValueAt(bar, 2).toString();
-        String d = tabmode.getValueAt(bar, 3).toString();
+        String d = tabmode.getValueAt(bar, 2).toString();
 
         tid.setText(a);
         tnama.setText(b);
-        cbjenis.setSelectedItem(c);
         tusername.setText(d);
     }//GEN-LAST:event_tabeladminMouseClicked
 
@@ -600,14 +581,13 @@ public class FormRegister extends javax.swing.JFrame {
 
     private void btnsaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsaveMouseClicked
         // TODO add your handling code here:
-        String sql = "insert into admin values (?,?,?,?,?)";
+        String sql = "insert into admin values (?,?,?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, tid.getText());
             stat.setString(2, tnama.getText());
-            stat.setString(3, cbjenis.getSelectedItem().toString());
-            stat.setString(4, tusername.getText());
-            stat.setString(5, tpass.getText());
+            stat.setString(3, tusername.getText());
+            stat.setString(4, tpass.getText());
 
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
@@ -647,12 +627,11 @@ public class FormRegister extends javax.swing.JFrame {
     private void btneditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseClicked
         // TODO add your handling code here:
         try {
-            String sql = "Update admin set nama=?,jenis=?,username=? where id =?";
+            String sql = "Update admin set nama=?,username=? where id =?";
             PreparedStatement stat = conn.prepareStatement(sql) ;
             stat.setString(1, tnama.getText());
-            stat.setString(2, cbjenis.getSelectedItem().toString());
-            stat.setString(3, tusername.getText());
-            stat.setString(4, tid.getText());
+            stat.setString(2, tusername.getText());
+            stat.setString(3, tid.getText());
 
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
@@ -680,9 +659,70 @@ public class FormRegister extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditMouseReleased
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
+        // TODO add your handling code here:
+        kosong();
+    }//GEN-LAST:event_btnclearMouseClicked
+
+    private void btnclearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclearMouseEntered
+
+    private void btnclearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclearMouseExited
+
+    private void btnclearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclearMousePressed
+
+    private void btnclearMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclearMouseReleased
+
+    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
+        // TODO add your handling code here:
+        this.hide();
+        new FormLogin().setVisible(true);
+    }//GEN-LAST:event_btnbackMouseClicked
+
+    private void btnbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbackMouseEntered
+
+    private void btnbackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbackMouseExited
+
+    private void btnbackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbackMousePressed
+
+    private void btnbackMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbackMouseReleased
+
+    private void btncloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncloseMouseClicked
+        // TODO add your handling code here:
+        int ok = JOptionPane.showConfirmDialog(null,  "Tutup","Tutup Form?",JOptionPane.YES_NO_CANCEL_OPTION);
+        if(ok == 0){
+            dispose();
+        }
+
+    }//GEN-LAST:event_btncloseMouseClicked
+
+    private void btncloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncloseMouseEntered
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btncloseMouseEntered
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel15MouseClicked
 
     private void btndeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMouseClicked
         // TODO add your handling code here:
@@ -717,67 +757,6 @@ public class FormRegister extends javax.swing.JFrame {
     private void btndeleteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_btndeleteMouseReleased
-
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel12MouseClicked
-
-    private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
-        // TODO add your handling code here:
-        kosong();
-    }//GEN-LAST:event_btnclearMouseClicked
-
-    private void btnclearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMouseEntered
-
-    private void btnclearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMouseExited
-
-    private void btnclearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMousePressed
-
-    private void btnclearMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMouseReleased
-
-    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
-        // TODO add your handling code here:
-        this.hide();
-        new Beranda().setVisible(true);
-    }//GEN-LAST:event_btnbackMouseClicked
-
-    private void btnbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbackMouseEntered
-
-    private void btnbackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbackMouseExited
-
-    private void btnbackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbackMousePressed
-
-    private void btnbackMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbackMouseReleased
-
-    private void btncloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncloseMouseClicked
-        // TODO add your handling code here:
-        int ok = JOptionPane.showConfirmDialog(null,  "Tutup","Tutup Form?",JOptionPane.YES_NO_CANCEL_OPTION);
-        if(ok == 0){
-            dispose();
-        }
-
-    }//GEN-LAST:event_btncloseMouseClicked
-
-    private void btncloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncloseMouseEntered
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btncloseMouseEntered
 
     /**
      * @param args the command line arguments
@@ -820,16 +799,16 @@ public class FormRegister extends javax.swing.JFrame {
     private javax.swing.JLabel btnclose;
     private javax.swing.JPanel btndelete;
     private javax.swing.JPanel btnedit;
+    private javax.swing.JPanel btnedit1;
     private javax.swing.JPanel btnsave;
-    private javax.swing.JComboBox<String> cbjenis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
