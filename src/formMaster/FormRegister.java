@@ -32,7 +32,6 @@ public class FormRegister extends javax.swing.JFrame {
         tid.setEnabled(true);
         tusername.setEnabled(true);
         tnama.setEnabled(true);
-        tusername.setEnabled(true);
         tpass.setEnabled(true);
         tusername.requestFocus();
     }
@@ -41,7 +40,6 @@ public class FormRegister extends javax.swing.JFrame {
         tid.setText("");
         tusername.setText("");
         tnama.setText("");
-        tusername.setText("");
         tpass.setText("");
     }
     
@@ -547,12 +545,13 @@ public class FormRegister extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tusernameActionPerformed
@@ -666,6 +665,7 @@ public class FormRegister extends javax.swing.JFrame {
     private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
         // TODO add your handling code here:
         kosong();
+        aktif();
     }//GEN-LAST:event_btnclearMouseClicked
 
     private void btnclearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseEntered
@@ -799,11 +799,9 @@ public class FormRegister extends javax.swing.JFrame {
     private javax.swing.JLabel btnclose;
     private javax.swing.JPanel btndelete;
     private javax.swing.JPanel btnedit;
-    private javax.swing.JPanel btnedit1;
     private javax.swing.JPanel btnsave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;

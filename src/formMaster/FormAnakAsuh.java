@@ -129,6 +129,8 @@ public void tanggal_masuk() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
         rjkl = new javax.swing.JRadioButton();
         rjkp = new javax.swing.JRadioButton();
@@ -176,6 +178,7 @@ public void tanggal_masuk() {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonGroup1.add(rjkl);
         rjkl.setText("Laki-Laki");
         rjkl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +187,7 @@ public void tanggal_masuk() {
         });
         jPanel3.add(rjkl, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 259, -1, -1));
 
+        buttonGroup1.add(rjkp);
         rjkp.setText("Perempuan");
         rjkp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,6 +316,7 @@ public void tanggal_masuk() {
         jLabel11.setText("Berkebutuhan Khusus");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 259, -1, -1));
 
+        buttonGroup2.add(rbky);
         rbky.setText("Iya");
         rbky.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,6 +325,7 @@ public void tanggal_masuk() {
         });
         jPanel3.add(rbky, new org.netbeans.lib.awtextra.AbsoluteConstraints(808, 257, -1, -1));
 
+        buttonGroup2.add(rbkt);
         rbkt.setText("Tidak");
         jPanel3.add(rbkt, new org.netbeans.lib.awtextra.AbsoluteConstraints(896, 257, -1, -1));
 
@@ -390,7 +396,8 @@ public void tanggal_masuk() {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DATA ANAK ASUH");
 
-        jPanel7.setBackground(new java.awt.Color(153, 204, 0));
+        jPanel7.setBackground(new java.awt.Color(16, 150, 72));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel7MouseClicked(evt);
@@ -431,9 +438,9 @@ public void tanggal_masuk() {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 731, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addGap(41, 41, 41))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,7 +450,7 @@ public void tanggal_masuk() {
                         .addGap(42, 42, 42)
                         .addComponent(jLabel1))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(16, 16, 16)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -472,6 +479,7 @@ public void tanggal_masuk() {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void rjklActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rjklActionPerformed
@@ -604,6 +612,7 @@ public void tanggal_masuk() {
     private void btclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btclearActionPerformed
         // TODO add your handling code here:
         kosong();
+        aktif();
     }//GEN-LAST:event_btclearActionPerformed
 
     private void tgoldarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tgoldarActionPerformed
@@ -722,6 +731,8 @@ public void tanggal_masuk() {
     private rojerusan.RSMaterialButtonRectangle btdelete;
     private rojerusan.RSMaterialButtonRectangle btedit;
     private rojerusan.RSMaterialButtonRectangle btsave;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private com.toedter.calendar.JDateChooser dmasukpanti;
     private com.toedter.calendar.JDateChooser dtanggal;
     private javax.swing.JLabel jLabel1;
