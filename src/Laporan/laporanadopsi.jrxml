@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="34c0c2af-be0a-4a0b-94e8-ee8273d1c632">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="676"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="id_adopsi" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -62,10 +62,6 @@ WHERE `id` = $P{id_adopsi}]]>
 				</textElement>
 				<text><![CDATA[Lembaga Panti Asuhan Anak]]></text>
 			</staticText>
-			<image>
-				<reportElement x="13" y="7" width="96" height="90" uuid="bce50bec-a85b-448c-969a-a14af80f9fbb"/>
-				<imageExpression><![CDATA["C:\\Users\\Raihan\\Downloads\\logocontoh.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="109" y="40" width="446" height="18" uuid="ab34ee3d-2f0b-4484-881f-45f882e713d9"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
@@ -87,6 +83,10 @@ WHERE `id` = $P{id_adopsi}]]>
 				</textElement>
 				<text><![CDATA[Alamat : Jl. Raya Condet, Jakarta Timur, 13510, Telp 08123456789]]></text>
 			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="109" height="92" uuid="4c35f081-bc56-49af-abc1-e6f739f51f93"/>
+				<imageExpression><![CDATA["C:\\Users\\Raihan\\Documents\\NetBeansProjects\\javapantiapp_jdk8\\javapantiapp_jdk8\\src\\images\\logocontoh.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

@@ -56,10 +56,6 @@ WHERE  pemasukan.`tanggal_pemasukan` BETWEEN $P{awal} AND $P{akhir}]]>
 				</textElement>
 				<text><![CDATA[Alamat : Jl. Raya Condet, Jakarta Timur, 13510, Telp 08123456789]]></text>
 			</staticText>
-			<image>
-				<reportElement x="10" y="19" width="96" height="90" uuid="5d669ea0-7ec2-4268-8dda-c41ec514d00c"/>
-				<imageExpression><![CDATA["C:\\Users\\Raihan\\Downloads\\logocontoh.png"]]></imageExpression>
-			</image>
 			<line>
 				<reportElement x="-23" y="114" width="597" height="1" uuid="fa9f9a75-e0eb-42ae-a62c-9ae8998701fe"/>
 				<graphicElement>
@@ -80,6 +76,10 @@ WHERE  pemasukan.`tanggal_pemasukan` BETWEEN $P{awal} AND $P{akhir}]]>
 				</textElement>
 				<text><![CDATA[SK Menteri Hukum & HAM RI AHU 0902314]]></text>
 			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="109" height="92" uuid="9b76e729-202f-48ba-aeb9-a747ad613605"/>
+				<imageExpression><![CDATA["C:\\Users\\Raihan\\Documents\\NetBeansProjects\\javapantiapp_jdk8\\javapantiapp_jdk8\\src\\images\\logocontoh.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

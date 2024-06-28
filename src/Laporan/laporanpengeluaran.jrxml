@@ -34,10 +34,6 @@ WHERE pengeluaran.`tanggal_pengeluaran` BETWEEN $P{awal} AND $P{akhir}]]>
 					<pen lineWidth="5.0" lineStyle="Double"/>
 				</graphicElement>
 			</line>
-			<image>
-				<reportElement x="13" y="14" width="94" height="90" uuid="5ef18bde-5efe-4dc6-8e35-7233eef75da3"/>
-				<imageExpression><![CDATA["C:\\Users\\Raihan\\Downloads\\logocontoh.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="-20" y="111" width="597" height="31" uuid="db843258-f582-4f96-a28e-d856e5483301"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -79,6 +75,10 @@ WHERE pengeluaran.`tanggal_pengeluaran` BETWEEN $P{awal} AND $P{akhir}]]>
 				</textElement>
 				<text><![CDATA[NAMA YAYASAN PANTI ASUHAN]]></text>
 			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="109" height="92" uuid="bdc8a553-9bfa-4eb4-9541-0dc6ad99258f"/>
+				<imageExpression><![CDATA["C:\\Users\\Raihan\\Documents\\NetBeansProjects\\javapantiapp_jdk8\\javapantiapp_jdk8\\src\\images\\logocontoh.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

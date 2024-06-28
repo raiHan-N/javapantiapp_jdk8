@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="34611ad3-3652-4e4c-8ea9-2b871a772db1">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="70"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[select * from adopsi;]]>
 	</queryString>
@@ -55,10 +55,6 @@
 				</textElement>
 				<text><![CDATA[Lembaga Panti Asuhan Anak]]></text>
 			</staticText>
-			<image>
-				<reportElement x="13" y="20" width="96" height="90" uuid="dc501a20-d687-4503-b988-c4cc88be61fa"/>
-				<imageExpression><![CDATA["C:\\Users\\Raihan\\Downloads\\logocontoh.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="109" y="53" width="446" height="18" uuid="eded6ea5-1370-434d-ace7-5951d4bf18fa"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
@@ -92,6 +88,10 @@
 					<pen lineWidth="2.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
+			<image>
+				<reportElement x="10" y="10" width="109" height="92" uuid="cf14f2a4-825d-4d83-a171-77b98f174747"/>
+				<imageExpression><![CDATA["C:\\Users\\Raihan\\Documents\\NetBeansProjects\\javapantiapp_jdk8\\javapantiapp_jdk8\\src\\images\\logocontoh.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
