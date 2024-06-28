@@ -3,14 +3,21 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<parameter name="awal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="akhir" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
 		<![CDATA[SELECT
      pemasukan.`id` AS pemasukan_id,
      pemasukan.`jumlah_pemasukan` AS pemasukan_jumlah_pemasukan,
      pemasukan.`sumber_pemasukan` AS pemasukan_sumber_pemasukan,
      pemasukan.`tanggal_pemasukan` AS pemasukan_tanggal_pemasukan
 FROM
-     `pemasukan` pemasukan]]>
+     `pemasukan` pemasukan
+WHERE  pemasukan.`tanggal_pemasukan` BETWEEN $P{awal} AND $P{akhir}]]>
 	</queryString>
 	<field name="pemasukan_id" class="java.lang.String"/>
 	<field name="pemasukan_jumlah_pemasukan" class="java.lang.Integer"/>
@@ -21,21 +28,70 @@ FROM
 		<band/>
 	</background>
 	<title>
-		<band height="72">
-			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="8a61a25f-7e50-437e-9a74-264459cac28c"/>
-				<staticText>
-					<reportElement x="0" y="8" width="585" height="72" forecolor="#FFFFFF" uuid="f4b298a1-3180-4c86-ad85-6799f91dc132"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="50" isBold="true"/>
-					</textElement>
-					<text><![CDATA[LAPORAN PEMASUKAN]]></text>
-				</staticText>
-			</frame>
+		<band height="148">
+			<staticText>
+				<reportElement x="106" y="12" width="446" height="21" uuid="cd67fc52-ff5d-4fa4-8dea-9d83e78aafd0"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NAMA YAYASAN PANTI ASUHAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-23" y="146" width="597" height="1" uuid="4d089330-3c73-4dc8-93cd-909880dbb160"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="106" y="52" width="446" height="18" uuid="60ddb453-7e02-445b-8284-952d60079d35"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Akta Perubahan : Bambang. SH, Nomor 01 Januari 2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-23" y="116" width="597" height="31" uuid="0f3062a9-d0ed-4dab-8c9f-93444462a3ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Alamat : Jl. Raya Condet, Jakarta Timur, 13510, Telp 08123456789]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="19" width="96" height="90" uuid="5d669ea0-7ec2-4268-8dda-c41ec514d00c"/>
+				<imageExpression><![CDATA["C:\\Users\\Raihan\\Downloads\\logocontoh.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="-23" y="114" width="597" height="1" uuid="fa9f9a75-e0eb-42ae-a62c-9ae8998701fe"/>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="106" y="33" width="446" height="18" uuid="859ba04a-e899-4748-8754-f280c1a2ca84"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Lembaga Panti Asuhan Anak]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="70" width="446" height="18" uuid="ea51e222-ab37-4ad2-a9d6-f196da992006"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SK Menteri Hukum & HAM RI AHU 0902314]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="13"/>
+		<band height="91">
+			<staticText>
+				<reportElement x="168" y="26" width="248" height="24" uuid="93fd5d6f-6b84-4cc0-93de-2cabb006a32d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PEMASUKAN]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="21">
@@ -43,28 +99,28 @@ FROM
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5ea164e5-71f0-43f9-9efc-04fff3664588"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a7c0a151-a7e7-46d3-972b-687e9d255a8d"/>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="a7c0a151-a7e7-46d3-972b-687e9d255a8d"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3e6df298-7b88-4dd8-a54a-f3c10d8bf4e4"/>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="3e6df298-7b88-4dd8-a54a-f3c10d8bf4e4"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[JUMLAH MASUK]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="43af923b-c5b6-4b53-b7bb-f5d3a664e1a5"/>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="43af923b-c5b6-4b53-b7bb-f5d3a664e1a5"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SUMBER MASUK]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aa38b030-16ec-4238-9621-9602a7dc3ac8"/>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="aa38b030-16ec-4238-9621-9602a7dc3ac8"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>

@@ -155,7 +155,7 @@ public class FormPengeluaran extends javax.swing.JFrame {
 
         btncetak.setBackground(new java.awt.Color(16, 150, 72));
         btncetak.setForeground(new java.awt.Color(255, 255, 255));
-        btncetak.setText("CETAK");
+        btncetak.setText("HALAMAN CETAK");
         btncetak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncetakActionPerformed(evt);
@@ -303,8 +303,8 @@ public class FormPengeluaran extends javax.swing.JFrame {
                             .addComponent(tglpengeluaran, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tid, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tkeperluan))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                         .addGap(18, 18, 18))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -349,8 +349,8 @@ public class FormPengeluaran extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -450,18 +450,8 @@ public class FormPengeluaran extends javax.swing.JFrame {
 
     private void btncetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetakActionPerformed
         // TODO add your handling code here:
-        try {
-            String namaFile = "src/Laporan/laporanpengeluaran.jasper";
-            Connection konek = new koneksi().connect();
-            HashMap parameter = new HashMap();
-            File report_file = new File(namaFile);
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter,konek);
-            JasperViewer.viewReport(jasperPrint,false);
-            JasperViewer.setDefaultLookAndFeelDecorated(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+       this.hide();
+       new tampilreport_pengeluaran().setVisible(true);
     }//GEN-LAST:event_btncetakActionPerformed
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked

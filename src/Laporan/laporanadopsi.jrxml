@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="34c0c2af-be0a-4a0b-94e8-ee8273d1c632">
-	<property name="ireport.zoom" value="1.3310000000000008"/>
+	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="384"/>
-	<queryString language="SQL">
-		<![CDATA[select * from adopsi;]]>
+	<property name="ireport.y" value="676"/>
+	<parameter name="id_adopsi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from adopsi
+WHERE `id` = $P{id_adopsi}]]>
 	</queryString>
 	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_wali" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nama_wali" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="alamat_wali" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_anak" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nama_anak" class="java.lang.String">
@@ -30,31 +40,62 @@
 	<field name="tgl_adopsi" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<variable name="nama_wali_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{nama_wali}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="111" splitType="Stretch">
+		<band height="153" splitType="Stretch">
 			<staticText>
-				<reportElement x="19" y="0" width="515" height="58" uuid="5d883e10-0487-47aa-9875-4e635338549a"/>
+				<reportElement x="109" y="0" width="446" height="21" uuid="5d883e10-0487-47aa-9875-4e635338549a"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
-					<font fontName="Times New Roman" size="40" isBold="true" isUnderline="true"/>
+					<font fontName="Times New Roman" size="18" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[YAYASAN PANTI ASUHAN]]></text>
+				<text><![CDATA[NAMA YAYASAN PANTI ASUHAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="176" y="58" width="206" height="36" uuid="093d7c9d-c890-4886-a6dd-1c0caf08fd14"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="25"/>
+				<reportElement x="109" y="21" width="446" height="18" uuid="1a7087ad-3aa2-44e6-818e-fa44bbc7cef0"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="true" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[Panti Asuhan Anak ]]></text>
+				<text><![CDATA[Lembaga Panti Asuhan Anak]]></text>
+			</staticText>
+			<image>
+				<reportElement x="13" y="7" width="96" height="90" uuid="bce50bec-a85b-448c-969a-a14af80f9fbb"/>
+				<imageExpression><![CDATA["C:\\Users\\Raihan\\Downloads\\logocontoh.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="109" y="40" width="446" height="18" uuid="ab34ee3d-2f0b-4484-881f-45f882e713d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Akta Perubahan : Bambang. SH, Nomor 01 Januari 2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="58" width="446" height="18" uuid="d393ae05-c576-4519-9afe-194f0626fe83"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SK Menteri Hukum & HAM RI AHU 0902314]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="104" width="597" height="31" uuid="35641ec0-3447-4ac5-b0d6-b1bbeaa42d56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Alamat : Jl. Raya Condet, Jakarta Timur, 13510, Telp 08123456789]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="176" splitType="Stretch">
+		<band height="136" splitType="Stretch">
 			<line>
-				<reportElement x="-21" y="0" width="597" height="1" uuid="ef12f17b-9a41-44d6-a478-2ad49609ba5e"/>
+				<reportElement x="-20" y="-50" width="597" height="1" uuid="ef12f17b-9a41-44d6-a478-2ad49609ba5e"/>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Double"/>
+				</graphicElement>
 			</line>
 			<staticText>
 				<reportElement x="158" y="16" width="248" height="24" uuid="eadf98fa-24ea-4700-8a90-14a970aeed73"/>
@@ -64,134 +105,139 @@
 				<text><![CDATA[SURAT KETERANGAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="69" width="555" height="21" uuid="7d6307c8-ebd6-40fe-9429-04873e25ba9c"/>
+				<reportElement x="34" y="105" width="521" height="21" uuid="7d6307c8-ebd6-40fe-9429-04873e25ba9c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[Yang bertanda tangan di bawah ini adalah Ketua/Pengasuh Yayasan Panti Asuhan]]></text>
+				<text><![CDATA[Yang bertanda tangan di bawah ini kami calon wali adopsi :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="90" width="555" height="21" uuid="3f49c1c8-aec5-4060-9bd6-3dc03c4cca54"/>
+				<reportElement x="208" y="40" width="37" height="20" uuid="d140fb5c-579b-40f5-a2e4-b194df3abb34"/>
 				<textElement>
-					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
+					<font fontName="Times New Roman" size="16"/>
 				</textElement>
-				<text><![CDATA[, dengan ini menerangkan bahwa :]]></text>
+				<text><![CDATA[No:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="255" y="40" width="127" height="20" uuid="46853a82-c7f9-4f53-b7e2-1875701fbd40"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="-18" width="597" height="1" uuid="a2a58de2-0620-42d5-903f-1d02e2984b8c"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
 		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="53" splitType="Stretch">
-			<staticText>
-				<reportElement x="46" y="33" width="63" height="20" uuid="4edd0b51-583e-47d9-982b-aaeaaff5b628"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[NAMA WALI]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="109" y="33" width="123" height="20" uuid="75a0f478-d60c-410c-96c5-03fe6fcad165"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ALAMAT WALI]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="232" y="33" width="69" height="20" uuid="1f577464-b695-4c7a-af92-2149b014bac0"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[NAMA ANAK]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="301" y="33" width="81" height="20" uuid="bb84d263-fab8-4412-b8bd-4a647d282c84"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[JENIS KELAMIN ANAK]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="382" y="33" width="39" height="20" uuid="3b81e999-a79f-45a9-9b87-03b3f3a16201"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[USIA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="421" y="33" width="96" height="20" uuid="97d5ac66-f312-49dc-88c7-d450007b2cac"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[TANGGAL LAHIR]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="28" y="33" width="18" height="20" uuid="78f44fcf-1b7c-4c8d-bda8-9f4b6c0b2df9"/>
-				<textElement>
-					<font fontName="Times New Roman" isBold="true"/>
-				</textElement>
-				<text><![CDATA[NO]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="46" y="0" width="63" height="20" uuid="ad4e5a1d-c90f-4889-be7a-df0b57f4bdf9"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nama_wali}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="109" y="0" width="123" height="20" uuid="66d2bb48-7e38-4c3f-85cb-bb05f6b3e401"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{alamat_wali}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="232" y="0" width="69" height="20" uuid="fe071c8c-c5d6-4037-92c4-6e42101d8fb7"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nama_anak}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="301" y="0" width="81" height="20" uuid="5d7d1f0b-24e1-48f8-8305-85c71f2b5f81"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{jenkel_anak}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="382" y="0" width="39" height="20" uuid="7fd507e6-0afa-4a13-bd94-ead5699e24b3"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{usia}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="421" y="0" width="96" height="20" uuid="9289f97e-56ca-4135-9bce-454b8cf91cb8"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="28" y="0" width="17" height="20" uuid="e7c18890-8423-43e6-b8cd-2835595f5f17"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{COLUMN_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
-	</detail>
 	<columnFooter>
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="302" splitType="Stretch">
+		<band height="513" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="32" width="555" height="21" uuid="9b8abb0b-4b76-4dbe-b4db-1e5be18d64b6"/>
+				<reportElement x="34" y="13" width="100" height="20" uuid="b16122c0-4ada-488a-9244-4a052c5be624"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[Nama Wali :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="155" y="13" width="400" height="20" uuid="51c42c39-13ea-4b39-81f8-cb23e4464fb8"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_wali}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="45" width="100" height="20" uuid="297d1649-8b0b-47ee-8123-a04ba4bc0f7a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[Alamat Wali :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="155" y="45" width="400" height="20" uuid="0501f5e2-72d8-4cf1-b87e-b94235c8876b"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat_wali}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="89" width="521" height="21" uuid="0c32d479-d224-4394-b542-01d3bbb91021"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Kami pihak wali menyatakan dengan ini menyerahkan anak kami ke yayasan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="110" width="521" height="21" uuid="3efd5e7c-e870-4dec-a11e-c1aceddc5dfb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[panti asuhan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="154" width="100" height="20" uuid="fc88d2a0-aaf1-4bb7-ac01-523427f141d7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[Nama Anak :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="155" y="154" width="400" height="20" uuid="823c8032-61bf-4ccf-b2b4-65a09e8980cb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_anak}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="188" width="100" height="20" uuid="bbbdc23f-a7bb-4756-9bb1-e9ea17762732"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="188" width="397" height="20" uuid="d076d295-280c-4c68-ae54-6d051c93a8fc"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenkel_anak}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="224" width="100" height="20" uuid="e2297eb2-41c9-49f5-8d5d-836e4e293a7c"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[Usia :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="224" width="397" height="20" uuid="96459217-4372-435d-bea8-eb509496f053"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="258" width="100" height="20" uuid="3d2f1e54-2f2c-42bd-9af2-02e7aa51f67e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[Tanggal Lahir :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="258" width="397" height="20" uuid="4171b930-a918-4663-bf49-feddaf24de05"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="318" width="555" height="21" uuid="9b8abb0b-4b76-4dbe-b4db-1e5be18d64b6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
 				</textElement>
@@ -199,46 +245,56 @@
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="11" width="555" height="21" uuid="3553c2a5-5b3f-4ea7-8ffe-2dea9313bb23"/>
-				<textElement>
-					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
-				</textElement>
-				<text><![CDATA[Nama - nama diatas tersebut adalah benar - benar anak asuh yayasan panti asuhan]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="370" y="76" width="51" height="21" uuid="cc5297d3-5ec3-4d89-be14-4e55d670bbb1"/>
+				<reportElement x="370" y="362" width="51" height="21" uuid="cc5297d3-5ec3-4d89-be14-4e55d670bbb1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Jakarta, ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="421" y="76" width="134" height="20" uuid="00f9b069-f195-4e59-8925-50403d6c5a14"/>
+				<reportElement x="421" y="362" width="134" height="20" uuid="00f9b069-f195-4e59-8925-50403d6c5a14"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tgl_adopsi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="370" y="97" width="185" height="21" uuid="1381ab38-9264-41f8-8be6-c1dacd5c7e60"/>
+				<reportElement x="370" y="383" width="185" height="21" uuid="1381ab38-9264-41f8-8be6-c1dacd5c7e60"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Ketua Yayasan Panti Asuhan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="370" y="242" width="185" height="21" uuid="31e83a42-7eaf-4857-8082-f460f8786c02"/>
+				<reportElement x="370" y="492" width="185" height="21" uuid="31e83a42-7eaf-4857-8082-f460f8786c02"/>
 				<textElement>
 					<font fontName="Times New Roman" size="16" isBold="true" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Nama Ketua Panti Asuhan]]></text>
 			</staticText>
 			<line>
-				<reportElement x="370" y="241" width="185" height="1" uuid="7cd530cd-da12-4252-a8ca-837c98693f7d"/>
+				<reportElement x="370" y="491" width="185" height="1" uuid="7cd530cd-da12-4252-a8ca-837c98693f7d"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="383" width="185" height="21" uuid="8ceadecf-4b19-4f7c-bccb-d9e4d6295835"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Wali Adopsi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="492" width="185" height="21" uuid="2fb35646-296f-4e4e-860f-bb027bcd2d25"/>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Nama Wali Adopsi]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="491" width="185" height="1" uuid="eb7df322-3878-43b6-8f56-bd5c9d77becc"/>
 			</line>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="274" splitType="Stretch"/>
 	</summary>
 </jasperReport>

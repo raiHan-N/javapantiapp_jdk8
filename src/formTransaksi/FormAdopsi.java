@@ -13,10 +13,13 @@ import javax.swing.JOptionPane;
 import javax.swing.border.*;
 import javax.swing.plaf.basic.BasicBorders;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 /**
  *
@@ -160,13 +163,14 @@ public void tanggal_masuk() {
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         btnclear = new javax.swing.JButton();
-        btncetak = new javax.swing.JButton();
+        btncetak_suratadopsi = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabadop = new javax.swing.JTable();
         bsave = new javax.swing.JButton();
         bedit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btncetak_laporan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -312,12 +316,12 @@ public void tanggal_masuk() {
             }
         });
 
-        btncetak.setBackground(new java.awt.Color(16, 150, 72));
-        btncetak.setForeground(new java.awt.Color(255, 255, 255));
-        btncetak.setText("CETAK");
-        btncetak.addActionListener(new java.awt.event.ActionListener() {
+        btncetak_suratadopsi.setBackground(new java.awt.Color(16, 150, 72));
+        btncetak_suratadopsi.setForeground(new java.awt.Color(255, 255, 255));
+        btncetak_suratadopsi.setText("CETAK SURAT ADOPSI");
+        btncetak_suratadopsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncetakActionPerformed(evt);
+                btncetak_suratadopsiActionPerformed(evt);
             }
         });
 
@@ -365,6 +369,15 @@ public void tanggal_masuk() {
         jLabel3.setForeground(new java.awt.Color(16, 150, 72));
         jLabel3.setText("Anak Adopsi");
 
+        btncetak_laporan.setBackground(new java.awt.Color(16, 150, 72));
+        btncetak_laporan.setForeground(new java.awt.Color(255, 255, 255));
+        btncetak_laporan.setText("CETAK LAPORAN");
+        btncetak_laporan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncetak_laporanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -381,18 +394,6 @@ public void tanggal_masuk() {
                         .addComponent(jLabel1)
                         .addGap(276, 276, 276)
                         .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(600, 600, 600)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addGap(29, 29, 29))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ttgl, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ttgladop, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1034, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -422,35 +423,52 @@ public void tanggal_masuk() {
                                 .addComponent(bcarianak))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(bsave)
-                                .addGap(18, 18, 18)
-                                .addComponent(bedit)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton10)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnclear)
-                                .addGap(8, 8, 8)
-                                .addComponent(btncetak)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton6))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addGap(36, 36, 36)
-                                    .addComponent(talamat, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(55, 55, 55)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(67, 67, 67)
-                                .addComponent(tusia, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(556, 556, 556)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(29, 29, 29))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ttgl, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ttgladop, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(bsave)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(bedit)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnclear)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton6)
+                                        .addGap(80, 80, 80))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel12)
+                                            .addGap(36, 36, 36)
+                                            .addComponent(talamat, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(55, 55, 55)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(tusia, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tjk, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btncetak_laporan)
                                 .addGap(18, 18, 18)
-                                .addComponent(tjk, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btncetak_suratadopsi)))))
                 .addGap(55, 55, 55))
         );
         jPanel2Layout.setVerticalGroup(
@@ -496,23 +514,26 @@ public void tanggal_masuk() {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tusia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ttgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(bsave)
                         .addComponent(bedit)
                         .addComponent(jButton10)
-                        .addComponent(btnclear)
-                        .addComponent(btncetak)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton6)
-                            .addComponent(jLabel16))))
+                            .addComponent(btnclear)
+                            .addComponent(jButton6))
+                        .addComponent(jLabel16)))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ttgladop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btncetak_laporan)
+                    .addComponent(btncetak_suratadopsi))
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -629,21 +650,24 @@ public void tanggal_masuk() {
         }
     }//GEN-LAST:event_ttglPropertyChange
 
-    private void btncetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetakActionPerformed
+    private void btncetak_suratadopsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetak_suratadopsiActionPerformed
         // TODO add your handling code here:
+        String idadp = JOptionPane.showInputDialog("Masukkan ID Adopsi yang ingin di cetak");
         try {
-            String namaFile = "src/Laporan/laporanadopsi.jasper";
+            
             Connection konek = new koneksi().connect();
             HashMap parameter = new HashMap();
-            File report_file = new File(namaFile);
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
+            parameter.put("id_adopsi",idadp);
+            File report_file = new File("src/Laporan/laporanadopsi.jrxml");
+            JasperDesign jasperDesign = JRXmlLoader.load(report_file);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter,konek);
             JasperViewer.viewReport(jasperPrint,false);
-            JasperViewer.setDefaultLookAndFeelDecorated(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_btncetakActionPerformed
+       
+    }//GEN-LAST:event_btncetak_suratadopsiActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -724,6 +748,22 @@ public void tanggal_masuk() {
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void btncetak_laporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncetak_laporanActionPerformed
+        // TODO add your handling code here:
+         try {
+            String namaFile = "src/Laporan/laporanketeranganadopsi.jasper";
+            Connection konek = new koneksi().connect();
+            HashMap parameter = new HashMap();
+            File report_file = new File(namaFile);
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter,konek);
+            JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.setDefaultLookAndFeelDecorated(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btncetak_laporanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -764,7 +804,8 @@ public void tanggal_masuk() {
     private javax.swing.JButton bcarianak;
     private javax.swing.JButton bedit;
     private javax.swing.JButton bsave;
-    private javax.swing.JButton btncetak;
+    private javax.swing.JButton btncetak_laporan;
+    private javax.swing.JButton btncetak_suratadopsi;
     private javax.swing.JButton btnclear;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton6;

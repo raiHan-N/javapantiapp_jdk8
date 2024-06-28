@@ -90,17 +90,13 @@ public class FormRegister extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabeladmin = new javax.swing.JTable();
         tpass = new javax.swing.JPasswordField();
-        btnsave = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        btnedit = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btnclear = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         btnback = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         btnclose = new javax.swing.JLabel();
-        btndelete = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        bedit = new javax.swing.JButton();
+        bsave = new javax.swing.JButton();
+        bdelete = new javax.swing.JButton();
+        bclear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +122,7 @@ public class FormRegister extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,156 +193,6 @@ public class FormRegister extends javax.swing.JFrame {
             }
         });
 
-        btnsave.setBackground(new java.awt.Color(16, 150, 72));
-        btnsave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsave.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnsaveMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnsaveMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnsaveMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnsaveMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnsaveMouseReleased(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(247, 240, 240));
-        jLabel8.setText("SAVE");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnsaveLayout = new javax.swing.GroupLayout(btnsave);
-        btnsave.setLayout(btnsaveLayout);
-        btnsaveLayout.setHorizontalGroup(
-            btnsaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-            .addGroup(btnsaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btnsaveLayout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel8)
-                    .addGap(0, 22, Short.MAX_VALUE)))
-        );
-        btnsaveLayout.setVerticalGroup(
-            btnsaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-            .addGroup(btnsaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btnsaveLayout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
-                    .addComponent(jLabel8)
-                    .addGap(0, 7, Short.MAX_VALUE)))
-        );
-
-        btnedit.setBackground(new java.awt.Color(16, 150, 72));
-        btnedit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnedit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btneditMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btneditMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btneditMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btneditMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btneditMouseReleased(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(247, 240, 240));
-        jLabel9.setText("EDIT");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btneditLayout = new javax.swing.GroupLayout(btnedit);
-        btnedit.setLayout(btneditLayout);
-        btneditLayout.setHorizontalGroup(
-            btneditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-            .addGroup(btneditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btneditLayout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel9)
-                    .addGap(0, 22, Short.MAX_VALUE)))
-        );
-        btneditLayout.setVerticalGroup(
-            btneditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-            .addGroup(btneditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btneditLayout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
-                    .addComponent(jLabel9)
-                    .addGap(0, 7, Short.MAX_VALUE)))
-        );
-
-        btnclear.setBackground(new java.awt.Color(16, 150, 72));
-        btnclear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnclear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnclearMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnclearMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnclearMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnclearMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnclearMouseReleased(evt);
-            }
-        });
-
-        jLabel12.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(247, 240, 240));
-        jLabel12.setText("CLEAR");
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnclearLayout = new javax.swing.GroupLayout(btnclear);
-        btnclear.setLayout(btnclearLayout);
-        btnclearLayout.setHorizontalGroup(
-            btnclearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
-            .addGroup(btnclearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btnclearLayout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel12)
-                    .addGap(0, 22, Short.MAX_VALUE)))
-        );
-        btnclearLayout.setVerticalGroup(
-            btnclearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-            .addGroup(btnclearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btnclearLayout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
-                    .addComponent(jLabel12)
-                    .addGap(0, 6, Short.MAX_VALUE)))
-        );
-
         btnback.setBackground(new java.awt.Color(16, 150, 72));
         btnback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnback.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -405,97 +251,87 @@ public class FormRegister extends javax.swing.JFrame {
             }
         });
 
-        btndelete.setBackground(new java.awt.Color(16, 150, 72));
-        btndelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btndelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btndeleteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btndeleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btndeleteMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btndeleteMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btndeleteMouseReleased(evt);
+        bedit.setBackground(new java.awt.Color(16, 150, 72));
+        bedit.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        bedit.setForeground(new java.awt.Color(255, 255, 255));
+        bedit.setText("EDIT");
+        bedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beditActionPerformed(evt);
             }
         });
 
-        jLabel15.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(247, 240, 240));
-        jLabel15.setText("DELETE");
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
+        bsave.setBackground(new java.awt.Color(16, 150, 72));
+        bsave.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        bsave.setForeground(new java.awt.Color(255, 255, 255));
+        bsave.setText("SAVE");
+        bsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsaveActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout btndeleteLayout = new javax.swing.GroupLayout(btndelete);
-        btndelete.setLayout(btndeleteLayout);
-        btndeleteLayout.setHorizontalGroup(
-            btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 96, Short.MAX_VALUE)
-            .addGroup(btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btndeleteLayout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel15)
-                    .addGap(0, 22, Short.MAX_VALUE)))
-        );
-        btndeleteLayout.setVerticalGroup(
-            btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-            .addGroup(btndeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(btndeleteLayout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
-                    .addComponent(jLabel15)
-                    .addGap(0, 7, Short.MAX_VALUE)))
-        );
+        bdelete.setBackground(new java.awt.Color(16, 150, 72));
+        bdelete.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        bdelete.setForeground(new java.awt.Color(255, 255, 255));
+        bdelete.setText("DELETE");
+        bdelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bdeleteActionPerformed(evt);
+            }
+        });
+
+        bclear.setBackground(new java.awt.Color(16, 150, 72));
+        bclear.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        bclear.setForeground(new java.awt.Color(255, 255, 255));
+        bclear.setText("CLEAR");
+        bclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bclearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnclose))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(btnback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnclose)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tusername)
-                    .addComponent(tpass)
-                    .addComponent(tnama)
-                    .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tnama)
+                                    .addComponent(tusername)
+                                    .addComponent(tid)
+                                    .addComponent(tpass))
+                                .addGap(21, 21, 21)))
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(bsave, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(bedit, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(bdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,15 +357,15 @@ public class FormRegister extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(tpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bedit)
+                    .addComponent(bsave)
+                    .addComponent(bdelete)
+                    .addComponent(bclear))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -537,17 +373,18 @@ public class FormRegister extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -573,116 +410,6 @@ public class FormRegister extends javax.swing.JFrame {
     private void tpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tpassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tpassActionPerformed
-
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void btnsaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsaveMouseClicked
-        // TODO add your handling code here:
-        String sql = "insert into admin values (?,?,?,?)";
-        try {
-            PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, tid.getText());
-            stat.setString(2, tnama.getText());
-            stat.setString(3, tusername.getText());
-            stat.setString(4, tpass.getText());
-
-            stat.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
-            kosong();
-            tid.requestFocus();
-            datatable();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan"+ e);
-        }
-    }//GEN-LAST:event_btnsaveMouseClicked
-
-    private void btnsaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsaveMouseEntered
-        // TODO add your handling code here:
-        btnsave.setBackground(new java.awt.Color(0,93,77));
-    }//GEN-LAST:event_btnsaveMouseEntered
-
-    private void btnsaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsaveMouseExited
-        // TODO add your handling code here:
-        btnsave.setBackground(new java.awt.Color(24,169,153));
-    }//GEN-LAST:event_btnsaveMouseExited
-
-    private void btnsaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsaveMousePressed
-        // TODO add your handling code here:
-        AbstractBorder brdrRight = new BasicBorders.ButtonBorder(java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.lightGray, java.awt.Color.lightGray);
-        btnsave.setBorder(brdrRight);
-    }//GEN-LAST:event_btnsaveMousePressed
-
-    private void btnsaveMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsaveMouseReleased
-        // TODO add your handling code here:
-        btnsave.setBorder(new EmptyBorder(0,0,0,0));
-    }//GEN-LAST:event_btnsaveMouseReleased
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9MouseClicked
-
-    private void btneditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseClicked
-        // TODO add your handling code here:
-        try {
-            String sql = "Update admin set nama=?,username=? where id =?";
-            PreparedStatement stat = conn.prepareStatement(sql) ;
-            stat.setString(1, tnama.getText());
-            stat.setString(2, tusername.getText());
-            stat.setString(3, tid.getText());
-
-            stat.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
-            kosong();
-            tusername.requestFocus();
-            datatable();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Data Gagal Diubah"+e);
-        }
-    }//GEN-LAST:event_btneditMouseClicked
-
-    private void btneditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditMouseEntered
-
-    private void btneditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditMouseExited
-
-    private void btneditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditMousePressed
-
-    private void btneditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditMouseReleased
-
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel12MouseClicked
-
-    private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
-        // TODO add your handling code here:
-        kosong();
-        aktif();
-    }//GEN-LAST:event_btnclearMouseClicked
-
-    private void btnclearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMouseEntered
-
-    private void btnclearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMouseExited
-
-    private void btnclearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMousePressed
-
-    private void btnclearMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnclearMouseReleased
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
         // TODO add your handling code here:
@@ -720,13 +447,48 @@ public class FormRegister extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btncloseMouseEntered
 
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+    private void bsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel15MouseClicked
+         String sql = "insert into admin values (?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, tid.getText());
+            stat.setString(2, tnama.getText());
+            stat.setString(3, tusername.getText());
+            stat.setString(4, tpass.getText());
 
-    private void btndeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMouseClicked
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+            kosong();
+            tid.requestFocus();
+            datatable();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan"+ e);
+        }
+    }//GEN-LAST:event_bsaveActionPerformed
+
+    private void beditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beditActionPerformed
         // TODO add your handling code here:
-        int ok = JOptionPane.showConfirmDialog(null,  "hapus","Konfirmasi Dialog",JOptionPane.YES_NO_CANCEL_OPTION);
+         try {
+            String sql = "Update admin set nama=?,username=? where id =?";
+            PreparedStatement stat = conn.prepareStatement(sql) ;
+            stat.setString(1, tnama.getText());
+            stat.setString(2, tusername.getText());
+            stat.setString(3, tid.getText());
+
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
+            kosong();
+            tusername.requestFocus();
+            datatable();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Diubah"+e);
+        }
+    }//GEN-LAST:event_beditActionPerformed
+
+    private void bdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdeleteActionPerformed
+        // TODO add your handling code here:
+         int ok = JOptionPane.showConfirmDialog(null,  "hapus","Konfirmasi Dialog",JOptionPane.YES_NO_CANCEL_OPTION);
         if(ok == 0){
             String sql = " delete from admin where id = '"+tid.getText()+"'";
             try {
@@ -740,23 +502,13 @@ public class FormRegister extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Data gagal dihapus"+ e);
             }
         }
-    }//GEN-LAST:event_btndeleteMouseClicked
+    }//GEN-LAST:event_bdeleteActionPerformed
 
-    private void btndeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMouseEntered
+    private void bclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bclearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btndeleteMouseEntered
-
-    private void btndeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btndeleteMouseExited
-
-    private void btndeleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btndeleteMousePressed
-
-    private void btndeleteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndeleteMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btndeleteMouseReleased
+         kosong();
+        aktif();
+    }//GEN-LAST:event_bclearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -794,24 +546,20 @@ public class FormRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bclear;
+    private javax.swing.JButton bdelete;
+    private javax.swing.JButton bedit;
+    private javax.swing.JButton bsave;
     private javax.swing.JPanel btnback;
-    private javax.swing.JPanel btnclear;
     private javax.swing.JLabel btnclose;
-    private javax.swing.JPanel btndelete;
-    private javax.swing.JPanel btnedit;
-    private javax.swing.JPanel btnsave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
