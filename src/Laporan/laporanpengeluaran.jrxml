@@ -9,6 +9,7 @@
 	<parameter name="akhir" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="RealPath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      pengeluaran.`id` AS pengeluaran_id,
@@ -39,17 +40,17 @@ WHERE pengeluaran.`tanggal_pengeluaran` BETWEEN $P{awal} AND $P{akhir}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="16" isBold="false" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[Alamat : Jl. Raya Condet, Jakarta Timur, 13510, Telp 08123456789]]></text>
+				<text><![CDATA[Alamat : Jl. Kartini Raya no.63 Rt.03/09 Pancoran Mas - Depok, 16436,Telp 085810350542]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="109" y="47" width="446" height="18" uuid="6ae03075-ab16-437b-8911-b732da0825b4"/>
+				<reportElement x="109" y="69" width="446" height="18" uuid="6ae03075-ab16-437b-8911-b732da0825b4"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Akta Perubahan : Bambang. SH, Nomor 01 Januari 2014]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="109" y="65" width="446" height="18" uuid="fee5453e-437c-4b1e-8d6d-6115e5c0fa1b"/>
+				<reportElement x="109" y="87" width="446" height="18" uuid="fee5453e-437c-4b1e-8d6d-6115e5c0fa1b"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
 				</textElement>
@@ -62,23 +63,30 @@ WHERE pengeluaran.`tanggal_pengeluaran` BETWEEN $P{awal} AND $P{akhir}]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="109" y="28" width="446" height="18" uuid="f70e5bd4-a5c3-4a67-8a1f-3304d92dbba3"/>
+				<reportElement x="109" y="50" width="446" height="18" uuid="f70e5bd4-a5c3-4a67-8a1f-3304d92dbba3"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="15" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Lembaga Panti Asuhan Anak]]></text>
 			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="101" height="109" uuid="3467df7b-5d68-4daa-8540-2579b060908a"/>
+				<imageExpression><![CDATA[$P{RealPath}+"logopanti.png"]]></imageExpression>
+			</image>
 			<staticText>
-				<reportElement x="109" y="7" width="446" height="21" uuid="b340c88e-365e-4b4c-94f4-cf60310b1ec8"/>
+				<reportElement x="109" y="29" width="446" height="21" uuid="8d8fe54b-8879-4c29-93c3-fece1bd406c6"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="18" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[NAMA YAYASAN PANTI ASUHAN]]></text>
+				<text><![CDATA[DEPOK]]></text>
 			</staticText>
-			<image>
-				<reportElement x="10" y="10" width="109" height="92" uuid="bdc8a553-9bfa-4eb4-9541-0dc6ad99258f"/>
-				<imageExpression><![CDATA["C:\\Users\\Raihan\\Documents\\NetBeansProjects\\javapantiapp_jdk8\\javapantiapp_jdk8\\src\\images\\logocontoh.png"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="109" y="8" width="446" height="21" uuid="8791705c-bf2f-4bc0-bedf-3b0f4014dbfe"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ASRAMA YATIM & DHUAFA KAFILATUR ROSUL]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

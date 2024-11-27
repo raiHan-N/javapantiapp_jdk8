@@ -184,12 +184,15 @@ public class tampilreport_pengeluaran extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bcetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcetakActionPerformed
         // TODO add your handling code here:
         try {
             Map<String,Object> parameter = new HashMap <String,Object>();
+            String RealPath = "lib/";
+            parameter.put("RealPath", RealPath);
             parameter.put("awal", tanggal_awal.getDate());
             parameter.put("akhir", tanggal_akhir.getDate());
             File file = new File ("src/Laporan/laporanpengeluaran.jrxml");

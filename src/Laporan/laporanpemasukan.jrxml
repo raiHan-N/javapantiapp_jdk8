@@ -9,6 +9,7 @@
 	<parameter name="akhir" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="RealPath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      pemasukan.`id` AS pemasukan_id,
@@ -34,7 +35,7 @@ WHERE  pemasukan.`tanggal_pemasukan` BETWEEN $P{awal} AND $P{akhir}]]>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="18" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[NAMA YAYASAN PANTI ASUHAN]]></text>
+				<text><![CDATA[ASRAMA YATIM & DHUAFA KAFILATUR ROSUL]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-23" y="146" width="597" height="1" uuid="4d089330-3c73-4dc8-93cd-909880dbb160"/>
@@ -43,18 +44,11 @@ WHERE  pemasukan.`tanggal_pemasukan` BETWEEN $P{awal} AND $P{akhir}]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="106" y="52" width="446" height="18" uuid="60ddb453-7e02-445b-8284-952d60079d35"/>
+				<reportElement x="106" y="92" width="446" height="18" uuid="ea51e222-ab37-4ad2-a9d6-f196da992006"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[Akta Perubahan : Bambang. SH, Nomor 01 Januari 2014]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="-23" y="116" width="597" height="31" uuid="0f3062a9-d0ed-4dab-8c9f-93444462a3ba"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="16" isBold="false" isUnderline="false"/>
-				</textElement>
-				<text><![CDATA[Alamat : Jl. Raya Condet, Jakarta Timur, 13510, Telp 08123456789]]></text>
+				<text><![CDATA[SK Menteri Hukum & HAM RI AHU 0902314]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-23" y="114" width="597" height="1" uuid="fa9f9a75-e0eb-42ae-a62c-9ae8998701fe"/>
@@ -63,22 +57,36 @@ WHERE  pemasukan.`tanggal_pemasukan` BETWEEN $P{awal} AND $P{akhir}]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="106" y="33" width="446" height="18" uuid="859ba04a-e899-4748-8754-f280c1a2ca84"/>
+				<reportElement x="-23" y="116" width="597" height="31" uuid="0f3062a9-d0ed-4dab-8c9f-93444462a3ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Alamat : Jl. Kartini Raya no.63 Rt.03/09 Pancoran Mas - Depok, 16436, Telp 085810350542]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="74" width="446" height="18" uuid="60ddb453-7e02-445b-8284-952d60079d35"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Akta Perubahan : Bambang. SH, Nomor 01 Januari 2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="55" width="446" height="18" uuid="859ba04a-e899-4748-8754-f280c1a2ca84"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="15" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Lembaga Panti Asuhan Anak]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="106" y="70" width="446" height="18" uuid="ea51e222-ab37-4ad2-a9d6-f196da992006"/>
+				<reportElement x="106" y="33" width="446" height="21" uuid="d034a224-0268-49e3-ae0e-19fce7086a5e"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
-					<font fontName="Times New Roman" size="15" isBold="false" isUnderline="false"/>
+					<font fontName="Times New Roman" size="18" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[SK Menteri Hukum & HAM RI AHU 0902314]]></text>
+				<text><![CDATA[DEPOK]]></text>
 			</staticText>
 			<image>
-				<reportElement x="10" y="10" width="109" height="92" uuid="9b76e729-202f-48ba-aeb9-a747ad613605"/>
-				<imageExpression><![CDATA["C:\\Users\\Raihan\\Documents\\NetBeansProjects\\javapantiapp_jdk8\\javapantiapp_jdk8\\src\\images\\logocontoh.png"]]></imageExpression>
+				<reportElement x="5" y="1" width="101" height="109" uuid="1bcc8cc4-f99f-4e47-be81-0f398f298f39"/>
+				<imageExpression><![CDATA[$P{RealPath}+"logopanti.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
